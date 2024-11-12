@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  width: 100%;
+  background: #f3f1ef;
+  background: #f2f0ed;
+}
+
+main {
+  min-height: calc(100vh - 100px);
+}
+
+.my-btn {
+  padding: 12px 30px;
+  cursor: pointer;
+  font-size: 18px;
+  color: white;
+  background-color: #74573f;
+  border-radius: 1px;
+  border: none;
+  transition: 0.3s;
+}
+
+.my-btn:hover {
+  background-color: rgb(106, 77, 53);
+}
+@media (max-width: 480px) {
+  main {
+    min-height: calc(100vh - 80px);
+  }
+}

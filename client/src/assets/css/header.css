@@ -1,0 +1,46 @@
+header {
+  height: 100px;
+  width: 100%;
+  background-color: #f6f5f3;
+  box-shadow: 1px 1px 3px rgb(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10%;
+}
+#logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: rgb(34, 25, 18);
+  user-select: none;
+  cursor: pointer;
+}
+header > div {
+  font-size: 14px;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 0 4%;
+    height: 80px;
+
+    .image-container {
+      width: 40px;
+      height: 40px;
+    }
+  }
+  .profile {
+    gap: 8px;
+  }
+  #logo {
+    font-size: 18px;
+    /* text-wrap: wrap;
+    width: min-content; */
+  }
+}

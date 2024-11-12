@@ -1,0 +1,36 @@
+.home-page {
+  gap: 30px;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.home-page .title {
+  font-size: 36px;
+  font-weight: bold;
+}
+.home-page .title,
+.home-page .aftertitle {
+  color: rgb(51, 38, 28);
+  text-align: center;
+}
+.home-page button:first-child {
+  border: 2px solid rgb(116, 87, 63);
+}
+.home-page button:first-child:hover {
+  border: 2px solid rgb(108, 79, 55);
+}
+.home-page button:nth-child(2) {
+  color: rgb(77, 58, 42);
+  background-color: rgb(252, 250, 247);
+  border: 2px solid rgb(116, 87, 63);
+}
+.home-page button:nth-child(2):hover {
+  border-color: rgb(252, 250, 247);
+}
+.home-page > div:last-child {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}

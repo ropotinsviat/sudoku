@@ -1,0 +1,45 @@
+.create-game {
+  padding: 100px 0;
+  margin: auto;
+  width: calc(100% - 50px);
+  max-width: 450px;
+  font-size: large;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.create-game p {
+  color: rgb(34, 25, 18);
+}
+.create-game p:nth-child(3) {
+  margin-top: 15px;
+}
+.create-game .options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+.create-game .options button {
+  background-color: rgb(252, 250, 247);
+  border: 2px solid rgb(252, 250, 247);
+  color: rgb(51, 38, 28);
+  cursor: pointer;
+  font-size: 16px;
+}
+.create-game .options button.selected {
+  border: 2px solid rgb(77, 58, 42);
+}
+
+.create-game button {
+  padding: 12px 25px;
+  cursor: pointer;
+}
+.create-game > button:last-child {
+  margin-top: 25px;
+  align-self: flex-end;
+}
+.create-game p,
+button {
+  font-size: large;
+  width: fit-content;
+}

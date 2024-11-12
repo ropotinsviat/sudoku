@@ -1,0 +1,72 @@
+.players-board-wrapper {
+  width: 100%;
+  background-color: #f6f5f3;
+  box-shadow: 1px 1px 2px rgb(0, 0, 0, 0.05);
+  padding-top: 20px;
+  position: relative;
+}
+
+.players-board {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 5px;
+  max-width: 100%;
+  margin: auto;
+  flex-direction: row;
+  overflow-x: auto;
+  padding: 0 4%;
+  position: relative;
+  width: max-content;
+  padding-bottom: 20px;
+}
+
+.player-card {
+  width: 220px;
+  padding: 0 20px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+.player-card:first-child,
+.player-card:nth-child(2),
+.player-card:nth-child(3) {
+  position: relative;
+}
+.player-card:first-child::after,
+.player-card:nth-child(2)::after,
+.player-card:nth-child(3)::after {
+  content: "1st";
+  position: absolute;
+  top: 5px;
+  left: 0;
+  border-radius: 5px;
+  color: black;
+  z-index: 1;
+}
+.player-card:nth-child(2)::after {
+  content: "2nd";
+}
+.player-card:nth-child(3)::after {
+  content: "3rd";
+}
+.player-card div {
+  text-wrap: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.stats {
+  display: flex;
+  gap: 15px;
+}
+.mistakes {
+  color: darkred;
+}
