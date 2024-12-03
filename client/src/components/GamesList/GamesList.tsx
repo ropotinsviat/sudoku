@@ -1,21 +1,12 @@
+import { Link } from "react-router-dom";
 import "../../assets/css/games-list.css";
 import { IGameCard } from "../../types/types";
 
-export default function GamesList({
-  games,
-  onClick,
-}: {
-  games: IGameCard[];
-  onClick: any;
-}) {
+export default function GamesList({ games }: { games: IGameCard[] }) {
   return (
     <div className="games-list">
       {games.map((game, i) => (
-        <div
-          className="game-list-item"
-          key={i}
-          onClick={() => onClick(game.gameId)}
-        >
+        <Link to={`/${game.gameId}`} className="game-list-item" key={i}>
           <div>
             <div>
               <strong>#{game.gameId}</strong>
@@ -24,7 +15,7 @@ export default function GamesList({
           </div>
           <div>{game.difficulty.replace(/^./, (c) => c.toUpperCase())}</div>
           <div>{game.timeSinceStart}</div>
-        </div>
+        </Link>
       ))}
     </div>
   );

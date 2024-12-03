@@ -1,39 +1,13 @@
 import { useGameContext } from "../../context/GameContext";
 import "../../assets/css/chat.css";
-import { useState, useMemo } from "react";
-import { useAuth } from "../../context/AuthContext";
+import { useState } from "react";
+import { useMessages } from "../../hooks/useMessages";
 
 export default function Chat({ close }: { close: () => void }) {
-  const { user } = useAuth();
   const { players, sendMessage } = useGameContext();
   const [inputValue, setInputValue] = useState("");
 
-  const personalizedMessages = useMemo(
-    () =>
-      players.flatMap((player) =>
-        player.userId !== user?.userId
-          ? [
-              `Hi, ${player.name}!`,
-              `Well done, ${player.name}!`,
-              `Thank you, ${player.name}!`,
-            ]
-          : []
-      ),
-    [players, user]
-  );
-
-  const messages = [
-    "Hi everyone",
-    "Yes",
-    "No",
-    "Thank you",
-    "I shall be right back",
-    "I'm stuck",
-    "I'm going to finish this",
-    "I'm done",
-    "Bye",
-    ...personalizedMessages,
-  ];
+  const messages = useMessages(players);
 
   const handleSendMessage = (message: string) => {
     sendMessage(message);

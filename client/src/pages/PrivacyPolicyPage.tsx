@@ -2,7 +2,7 @@ import React from "react";
 import "../assets/css/privacy-policy.css";
 import Footer from "../components/Footer/Footer";
 
-const PrivacyPolicyPage: React.FC = () => {
+const PrivacyPolicyPage = () => {
   return (
     <>
       <main>

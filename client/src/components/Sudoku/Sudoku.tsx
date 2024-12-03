@@ -4,6 +4,7 @@ import Board from "../Board/Board";
 import Controls from "../Controls/Controls";
 import { useGameContext } from "../../context/GameContext";
 import { ISelectedCell } from "../../types/types";
+import { useKeyPressHandler } from "../../hooks/useKeyPressHandler";
 
 export default function Sudoku() {
   const { onCellPut } = useGameContext();
@@ -27,23 +28,7 @@ export default function Sudoku() {
     else setSelectedCell({ row, col });
   };
 
-  useEffect(() => {
-    const handleKeyPress = (event: any) => {
-      const { key } = event;
-      const { row, col } = selectedCell;
-
-      if (row !== null && col !== null) {
-        if (key >= "1" && key <= "9") handleOnCellPut(parseInt(key));
-        else if (key === "Backspace") handleOnCellPut(0);
-      }
-    };
-
-    window.addEventListener("keydown", handleKeyPress);
-
-    return () => {
-      window.removeEventListener("keydown", handleKeyPress);
-    };
-  }, [selectedCell]);
+  useKeyPressHandler(selectedCell, handleOnCellPut);
 
   return (
     <div className="sudoku">

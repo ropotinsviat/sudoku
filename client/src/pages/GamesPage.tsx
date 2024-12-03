@@ -8,8 +8,6 @@ export default function GamesPage() {
   const navigate = useNavigate();
   const { games, fetchGames } = useGamesList();
 
-  const joinGame = (gameId: number) => navigate(`/${gameId}`);
-
   return (
     <main className="games-page">
       <div>
@@ -35,7 +33,7 @@ export default function GamesPage() {
           )}
         </div>
       </div>
-      <GamesList games={games} onClick={joinGame} />
+      <GamesList games={games} />
     </main>
   );
 }
