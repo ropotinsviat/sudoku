@@ -1,4 +1,4 @@
-# Game Platform
+# Sudoku Multiplayer
 
 [Visit the site here](https://sunny-kleicha-6b73e6.netlify.app)
 
