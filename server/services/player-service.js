@@ -18,6 +18,7 @@ class PlayerService {
     ]);
 
     return {
+      userId,
       name: users[0].name,
       picture: users[0].picture,
       solved: 0,
@@ -68,7 +69,6 @@ class PlayerService {
     }
 
     game.players = Object.values(game.players);
-    game.link = `${process.env.CLIENT_URL}/${gameId}`;
 
     delete game.initialBoard;
 

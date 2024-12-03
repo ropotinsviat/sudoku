@@ -29,6 +29,12 @@ main {
 .my-btn:hover {
   background-color: rgb(106, 77, 53);
 }
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 @media (max-width: 480px) {
   main {
     min-height: calc(100vh - 80px);
