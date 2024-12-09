@@ -1,0 +1,49 @@
+.playerCard {
+  width: 220px;
+  padding: 0 20px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+.playerCard:first-child,
+.playerCard:nth-child(2),
+.playerCard:nth-child(3) {
+  position: relative;
+}
+.playerCard:first-child::after,
+.playerCard:nth-child(2)::after,
+.playerCard:nth-child(3)::after {
+  content: "1st";
+  position: absolute;
+  top: 5px;
+  left: 0;
+  border-radius: 5px;
+  color: black;
+  z-index: 1;
+}
+.playerCard:nth-child(2)::after {
+  content: "2nd";
+}
+.playerCard:nth-child(3)::after {
+  content: "3rd";
+}
+.playerCard div {
+  text-wrap: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.stats {
+  display: flex;
+  gap: 15px;
+}
+.mistakes {
+  color: darkred;
+}

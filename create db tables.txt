@@ -1,0 +1,44 @@
+CREATE TABLE "user" (
+  "user_id" int NOT NULL AUTO_INCREMENT,
+  "name" varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  "picture" varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'https://p.kindpng.com/picc/s/52-525979_unknown-person-png-transparent-png.png',
+  PRIMARY KEY ("user_id")
+)
+
+CREATE TABLE "game" (
+  "game_id" int NOT NULL AUTO_INCREMENT,
+  "user_id" int NOT NULL,
+  "start_time" datetime DEFAULT NULL,
+  "visibility" enum('public','private','none') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  "difficulty" enum('easy','medium','hard','extreme') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  "initial_board" char(81) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  "solved_board" char(81) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  "creation_time" datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY ("game_id"),
+  KEY "user_id" ("user_id"),
+  CONSTRAINT "game_ibfk_1" FOREIGN KEY ("user_id") REFERENCES "user" ("user_id") ON DELETE CASCADE
+)
+
+CREATE TABLE "player" (
+  "player_id" int NOT NULL AUTO_INCREMENT,
+  "user_id" int NOT NULL,
+  "game_id" int NOT NULL,
+  "mistakes" int NOT NULL DEFAULT '0',
+  "completion_time" datetime DEFAULT NULL,
+  PRIMARY KEY ("player_id"),
+  KEY "game_id" ("game_id"),
+  KEY "user_id" ("user_id"),
+  CONSTRAINT "player_ibfk_1" FOREIGN KEY ("game_id") REFERENCES "game" ("game_id") ON DELETE CASCADE,
+  CONSTRAINT "player_ibfk_2" FOREIGN KEY ("user_id") REFERENCES "user" ("user_id") ON DELETE CASCADE
+)
+
+CREATE TABLE "cell" (
+  "cell_id" int NOT NULL AUTO_INCREMENT,
+  "player_id" int NOT NULL,
+  "row" tinyint NOT NULL,
+  "col" tinyint NOT NULL,
+  "val" tinyint NOT NULL,
+  PRIMARY KEY ("cell_id"),
+  KEY "player_id" ("player_id"),
+  CONSTRAINT "cell_ibfk_1" FOREIGN KEY ("player_id") REFERENCES "player" ("player_id") ON DELETE CASCADE
+)

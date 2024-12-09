@@ -1,0 +1,23 @@
+.createGame {
+  padding: 100px 0;
+  margin: auto;
+  width: calc(100% - 50px);
+  max-width: 450px;
+  font-size: large;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  p {
+    color: rgb(34, 25, 18);
+    font-size: large;
+    width: fit-content;
+  }
+  p:nth-child(3) {
+    margin-top: 15px;
+  }
+  > button:last-child {
+    margin-top: 25px;
+    align-self: flex-end;
+  }
+}

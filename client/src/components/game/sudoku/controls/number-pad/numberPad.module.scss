@@ -1,0 +1,33 @@
+.nums {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 450px;
+  gap: 2px;
+}
+
+.nums > div {
+  font-size: 20px;
+  cursor: pointer;
+  user-select: none;
+  text-align: center;
+  flex: 1;
+}
+
+@media (max-width: 480px) {
+  .nums {
+    width: 400px;
+  }
+}
+
+@media (max-width: 420px) {
+  .nums {
+    width: 360px;
+  }
+}
+
+@media (max-width: 380px) {
+  .nums {
+    width: 320px;
+  }
+}

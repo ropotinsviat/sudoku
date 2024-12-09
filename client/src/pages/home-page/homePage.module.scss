@@ -1,0 +1,25 @@
+.homePage {
+  gap: 30px;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .title {
+    font-size: 36px;
+    font-weight: bold;
+  }
+
+  .title,
+  .aftertitle {
+    color: rgb(51, 38, 28);
+    text-align: center;
+  }
+
+  > div:last-child {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+}

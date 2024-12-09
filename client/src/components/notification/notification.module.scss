@@ -1,0 +1,10 @@
+.notification {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.notification > div:first-child {
+  font-weight: bold;
+  color: #222;
+}

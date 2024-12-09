@@ -1,0 +1,22 @@
+.gameCard {
+  width: 100%;
+  color: rgb(34, 25, 18);
+  background-color: rgb(245, 244, 242);
+  cursor: pointer;
+  border: 1px solid rgb(34, 25, 18, 0.2);
+  padding: 20px 30px;
+  display: flex;
+  flex-direction: column;
+  transition: 0.3s;
+  gap: 10px;
+  box-shadow: 1px 1px 3px rgb(0, 0, 0, 0.1);
+}
+
+.gameCard:hover {
+  background-color: rgb(223, 217, 212, 0.5);
+}
+
+.gameCard > div:first-child {
+  display: flex;
+  justify-content: space-between;
+}

@@ -1,0 +1,30 @@
+.actionToolBar {
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+
+  > div {
+    cursor: pointer;
+    height: fit-content;
+    max-width: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    user-select: none;
+    font-size: 12px;
+    flex: 1;
+  }
+  > div > svg {
+    height: 25px;
+    max-width: 25px;
+    path {
+      fill: rgb(130, 130, 130);
+      transition: 0.2s;
+    }
+  }
+  > .on svg path {
+    fill: black;
+  }
+}

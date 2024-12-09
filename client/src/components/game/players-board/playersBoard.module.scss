@@ -1,0 +1,22 @@
+.wrapper {
+  width: 100%;
+  background-color: #f6f5f3;
+  box-shadow: 1px 1px 2px rgb(0, 0, 0, 0.05);
+  padding-top: 20px;
+  position: relative;
+}
+
+.playersBoard {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 5px;
+  max-width: 100%;
+  margin: auto;
+  flex-direction: row;
+  overflow-x: auto;
+  padding: 0 4%;
+  position: relative;
+  width: max-content;
+  padding-bottom: 20px;
+}

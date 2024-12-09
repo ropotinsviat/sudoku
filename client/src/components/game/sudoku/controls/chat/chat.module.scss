@@ -1,0 +1,38 @@
+.chat {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  padding: 20px;
+  background-color: #f6f5f3;
+  width: 90%;
+  max-width: 600px;
+  max-height: 600px;
+  overflow-y: auto;
+}
+.chat > div:last-child {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  input[type="text"] {
+    padding: 0 20px;
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 0px;
+    outline: none;
+  }
+  button {
+    border-radius: 0;
+  }
+}
+.chatTop {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.chatTop > div:nth-child(2) {
+  color: rgb(60, 60, 60);
+  cursor: pointer;
+  font-size: 14px;
+}

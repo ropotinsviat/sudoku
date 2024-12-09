@@ -1,0 +1,29 @@
+.button {
+  padding: 12px 30px;
+  font-size: 18px;
+  border-radius: 1px;
+  border: none;
+  transition: 0.3s;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.dark {
+  color: white;
+  background-color: #74573f;
+}
+
+.light {
+  color: rgb(77, 58, 42);
+  background-color: rgb(252, 250, 247);
+  border: 2px solid rgb(116, 87, 63);
+  padding: 10px 28px;
+}
+
+.dark:hover {
+  background-color: rgb(106, 77, 53);
+}
+
+.light:hover {
+  border-color: rgb(252, 250, 247);
+}

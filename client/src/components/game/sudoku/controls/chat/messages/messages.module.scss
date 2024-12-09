@@ -1,0 +1,14 @@
+.messages {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.message {
+  padding: 8px 12px;
+  background-color: #e5e1db;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.message:hover {
+  background-color: rgb(209, 205, 199);
+}

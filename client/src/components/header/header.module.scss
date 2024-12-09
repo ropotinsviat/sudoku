@@ -1,0 +1,52 @@
+$header-bg-color: #f6f5f3;
+$header-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+$logo-font-color: rgb(34, 25, 18);
+
+.header {
+  height: 100px;
+  width: 100%;
+  background-color: $header-bg-color;
+  box-shadow: $header-shadow;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10%;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: $logo-font-color;
+  user-select: none;
+  cursor: pointer;
+}
+
+header > div {
+  font-size: 14px;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 0 4%;
+    height: 80px;
+
+    .image-container {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  .profile {
+    gap: 8px;
+  }
+
+  .logo {
+    font-size: 18px;
+  }
+}

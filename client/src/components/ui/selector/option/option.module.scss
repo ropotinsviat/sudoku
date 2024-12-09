@@ -1,0 +1,12 @@
+.button {
+  background-color: rgb(252, 250, 247);
+  border: 2px solid rgb(252, 250, 247);
+  color: rgb(51, 38, 28);
+  cursor: pointer;
+  font-size: 16px;
+  padding: 12px 25px;
+}
+
+.selected {
+  border: 2px solid rgb(77, 58, 42);
+}

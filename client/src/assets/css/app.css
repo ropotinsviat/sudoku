@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  width: 100%;
+  background: #f3f1ef;
+  background: #f2f0ed;
+}
+
+main {
+  min-height: calc(100vh - 100px);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+@media (max-width: 480px) {
+  main {
+    min-height: calc(100vh - 80px);
+  }
+}

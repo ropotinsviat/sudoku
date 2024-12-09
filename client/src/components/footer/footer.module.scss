@@ -1,0 +1,27 @@
+footer {
+  background-color: rgb(227, 221, 216);
+  color: rgb(34, 25, 18);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  justify-content: end;
+  padding-bottom: 20px;
+  height: 110px;
+
+  > div,
+  > nav {
+    width: max-content;
+  }
+  > nav {
+    display: flex;
+    gap: 12px;
+    font-size: 17px;
+  }
+  > div {
+    font-size: 14px;
+  }
+  .cursor {
+    cursor: pointer;
+  }
+}

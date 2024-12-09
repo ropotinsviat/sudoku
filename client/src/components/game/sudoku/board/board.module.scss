@@ -1,0 +1,32 @@
+.board {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  grid-template-rows: repeat(9, 1fr);
+  width: 450px;
+  height: 450px;
+  margin: 0 auto;
+  outline: calc(0.05em + 0.05em / 2) solid rgb(67, 48, 32);
+  position: relative;
+  user-select: none;
+}
+
+@media (max-width: 480px) {
+  .board {
+    width: 400px;
+    height: 400px;
+  }
+}
+
+@media (max-width: 420px) {
+  .board {
+    width: 360px;
+    height: 360px;
+  }
+}
+
+@media (max-width: 380px) {
+  .board {
+    width: 320px;
+    height: 320px;
+  }
+}
