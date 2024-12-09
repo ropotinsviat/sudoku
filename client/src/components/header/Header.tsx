@@ -4,8 +4,15 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectAuthUser } from "../../redux/selectors/authSelectors";
 
+import { useDispatch } from "react-redux";
+import { logout } from "../../redux/actions/authActions";
+import { AppDispatch } from "../../redux/store";
+
 export default function Header() {
   const user = useSelector(selectAuthUser);
+
+  const dispatch = useDispatch<AppDispatch>();
+  const handleLogout = () => dispatch(logout());
 
   return (
     <header className={styles.header}>
@@ -15,7 +22,7 @@ export default function Header() {
 
       {user && (
         <div className={styles.profile}>
-          <div>
+          <div onClick={handleLogout}>
             <CirclePicture src={user.picture} />
           </div>
           <div>{user.name} </div>

@@ -1,20 +1,22 @@
 import styles from "./createGamePage.module.scss";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import GameService from "../../api/GameService";
 import { useNavigate } from "react-router-dom";
 import Selector from "../../components/ui/selector/Selector";
 import { difficulties, visibilities } from "../../constants/createGameOptions";
 import Button from "../../components/ui/button/Button";
+import Loading from "../../components/ui/loading/Loading";
+import { useAsync } from "../../hooks/useAsynk";
 
 export default function CreateGamePage() {
   const navigate = useNavigate();
   const [difficulty, setDifficulty] = useState("easy");
   const [visibility, setVisibility] = useState("public");
 
-  async function createGame() {
+  const { execute: createGame, loading } = useAsync(async () => {
     const gameId = await GameService.create({ difficulty, visibility });
     navigate(`/${gameId}`);
-  }
+  });
 
   return (
     <main>
@@ -36,7 +38,7 @@ export default function CreateGamePage() {
           onSelect={(vis: string) => setVisibility(vis)}
           selectedOption={visibility}
         />
-        <Button onClick={createGame}>Create</Button>
+        {loading ? <Loading /> : <Button onClick={createGame}>Create</Button>}
       </div>
     </main>
   );

@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { authenticateUser } from "../actions/authActions";
+import { authenticateUser, logout } from "../actions/authActions";
 import { IUser } from "../../types/User";
 
 interface AuthState {
@@ -31,6 +31,20 @@ const authSlice = createSlice({
       .addCase(authenticateUser.rejected, (state) => {
         state.loading = false;
         state.error = "An error occurred! Try later or contact support.";
+      });
+
+    builder
+      .addCase(logout.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(logout.fulfilled, (state, action) => {
+        state.loading = false;
+        state.user = action.payload;
+      })
+      .addCase(logout.rejected, (state) => {
+        state.loading = false;
+        state.error = "Failed to log out. Please try again.";
       });
   },
 });

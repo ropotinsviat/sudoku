@@ -20,6 +20,8 @@ export function useGame(gameId: number) {
     unsolved: 0,
     ownerId: -1,
   });
+  const [cellBeingPuted, setCellBeingPuted] = useState(false);
+
   const navigate = useNavigate();
 
   useGameSocket(gameId, setPlayers, fetchData);
@@ -33,6 +35,8 @@ export function useGame(gameId: number) {
     selectedCell: ISelectedCell,
     noteMode: boolean
   ) {
+    if (cellBeingPuted) return;
+    setCellBeingPuted(true);
     const newBoard = await updateBoardCell(
       board,
       selectedCell,
@@ -41,6 +45,7 @@ export function useGame(gameId: number) {
       gameId
     );
     setBoard(newBoard);
+    setCellBeingPuted(false);
   }
 
   async function sendMessage(message: string) {
