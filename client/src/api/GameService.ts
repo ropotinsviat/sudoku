@@ -15,7 +15,7 @@ export default class GameService {
   }
 
   static async start(gameId: number) {
-    await api.put(`/games/${gameId}`);
+    await api.post(`/games/${gameId}/start`);
   }
 
   static async join(gameId: number) {
@@ -26,7 +26,11 @@ export default class GameService {
   }
 
   static async putCell(gameId: number, cellData: ICellData) {
-    const { data } = await api.put<boolean>(`/games/${gameId}/cells`, cellData);
+    const { data } = await api.post<boolean>(
+      `/games/${gameId}/cells`,
+      cellData
+    );
+
     return data;
   }
 

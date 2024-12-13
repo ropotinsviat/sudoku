@@ -11,6 +11,6 @@
     "resolveJsonModule": true,
     "noEmit": true
   },
-  "include": ["src/pages", "src/components", "src/declaration.d.ts"],
+  "include": ["src"],
   "exclude": ["node_modules"]
 }

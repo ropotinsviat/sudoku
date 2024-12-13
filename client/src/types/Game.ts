@@ -6,7 +6,6 @@ export interface IGameCard {
 }
 
 export interface IGame {
-  ownerId: number | null;
-  startTime: string | null;
-  unsolved: number | null;
+  ownerId: number;
+  startTime: string;
 }

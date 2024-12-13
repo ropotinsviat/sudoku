@@ -1,10 +1,11 @@
-import React, { createContext, ReactNode, useContext } from "react";
+import { createContext, ReactNode, useContext } from "react";
 import { useGame } from "../hooks/useGame";
 import { IPlayer } from "../types/Player";
 import { IGame } from "../types/Game";
 import { ICell, ISelectedCell } from "../types/Cell";
+import GameService from "../api/GameService";
 
-type IGameProduct = {
+type IGameDataAndApiActions = {
   players: IPlayer[];
   board: ICell[][];
   gameData: IGame;
@@ -17,7 +18,7 @@ type IGameProduct = {
   sendMessage: (message: string) => Promise<void>;
 };
 
-const GameContext = createContext<IGameProduct | null>(null);
+const GameContext = createContext<IGameDataAndApiActions | null>(null);
 export const useGameContext = () => {
   const context = useContext(GameContext);
   if (!context)
@@ -25,14 +26,23 @@ export const useGameContext = () => {
   return context;
 };
 
-export const GameProvider = ({
-  gameId,
-  children,
-}: {
+interface GameProviderProps {
   gameId: number;
   children: ReactNode;
-}) => {
-  const game = useGame(gameId);
+}
+
+export function GameProvider({ gameId, children }: GameProviderProps) {
+  const gameData = useGame(gameId);
+
+  async function sendMessage(message: string) {
+    await GameService.sendMessage(gameId, message);
+  }
+
+  async function startGame() {
+    await GameService.start(gameId);
+  }
+
+  const game = { ...gameData, startGame, sendMessage };
 
   return <GameContext.Provider value={game}>{children}</GameContext.Provider>;
-};
+}

@@ -15,11 +15,7 @@ export default function PlayersBoard() {
         <div className={styles.wrapper}>
           <div className={styles.playersBoard}>
             {sortedPlayers.map((player, i) => (
-              <PlayerCard
-                player={player}
-                key={i}
-                unsolved={gameData.unsolved}
-              />
+              <PlayerCard player={player} key={i} />
             ))}
           </div>
         </div>

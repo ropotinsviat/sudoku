@@ -1,6 +1,6 @@
 export interface IPlayer {
   userId: number;
-  completionTime: number | null | undefined;
+  completionTime: number;
   mistakes: number;
   name: string;
   picture: string;
