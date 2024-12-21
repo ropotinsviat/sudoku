@@ -1,5 +1,7 @@
 # Sudoku Multiplayer
 
+> React Client | Nest.js server | MySQL & TypeOrmModule for DB
+
 [Visit the site here](https://sunny-kleicha-6b73e6.netlify.app)
 
 **Note**: The site may take some time to load because the server turns off when inactive.
