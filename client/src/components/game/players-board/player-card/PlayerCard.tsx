@@ -1,9 +1,14 @@
-import CirclePicture from "../../../ui/picture/Picture";
+import CirclePicture from "../../../common/picture/Picture";
 import formatTime from "../../../../utils/formatTime";
 import { IPlayer } from "../../../../types/Player";
 import styles from "./playerCard.module.scss";
+import { FC } from "react";
 
-export default function PlayerCard({ player }: { player: IPlayer }) {
+interface PlayerCardProps {
+  player: IPlayer;
+}
+
+const PlayerCard: FC<PlayerCardProps> = ({ player }) => {
   return (
     <div className={styles.playerCard}>
       <CirclePicture src={player.picture} />
@@ -22,4 +27,6 @@ export default function PlayerCard({ player }: { player: IPlayer }) {
       </div>
     </div>
   );
-}
+};
+
+export default PlayerCard;

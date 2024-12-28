@@ -1,9 +1,8 @@
-import { useState, useEffect } from "react";
-import Loading from "../ui/loading/Loading";
-import Overlay from "../ui/overlay/Overlay";
+import { useState, useEffect, FC } from "react";
+import Loading from "../common/loading/Loading";
 import styles from "./fallback.module.scss";
 
-function Fallback() {
+const Fallback: FC = () => {
   const [shouldRender, setShouldRender] = useState(false);
 
   useEffect(() => {
@@ -15,10 +14,9 @@ function Fallback() {
 
   return (
     <div className={styles.loading}>
-      <Overlay />
       <Loading />
     </div>
   );
-}
+};
 
 export default Fallback;

@@ -1,3 +1,4 @@
+import { FC } from "react";
 import styles from "./actionToolBar.module.scss";
 import { ReactComponent as PenIcon } from "../../../../../assets/svg/pen.svg";
 import { ReactComponent as EraseIcon } from "../../../../../assets/svg/erase.svg";
@@ -10,26 +11,26 @@ interface ActionToolBarProps {
   showChat: () => void;
 }
 
-export default function ActionToolBar({
+const ActionToolBar: FC<ActionToolBarProps> = ({
   noteMode,
   switchNoteMode,
   onNumClick,
   showChat,
-}: ActionToolBarProps) {
-  return (
-    <div className={styles.actionToolBar}>
-      <div onClick={switchNoteMode} className={noteMode ? styles.on : ""}>
-        <PenIcon />
-        Notes {noteMode ? "on" : "off"}
-      </div>
-      <div onClick={() => onNumClick(0)}>
-        <EraseIcon />
-        Erase
-      </div>
-      <div onClick={showChat}>
-        <ChatIcon />
-        Send message
-      </div>
+}) => (
+  <div className={styles.actionToolBar}>
+    <div onClick={switchNoteMode} className={noteMode ? styles.on : ""}>
+      <PenIcon />
+      Notes {noteMode ? "on" : "off"}
     </div>
-  );
-}
+    <div onClick={() => onNumClick(0)}>
+      <EraseIcon />
+      Erase
+    </div>
+    <div onClick={showChat}>
+      <ChatIcon />
+      Send message
+    </div>
+  </div>
+);
+
+export default ActionToolBar;

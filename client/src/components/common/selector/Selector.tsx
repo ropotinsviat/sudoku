@@ -2,13 +2,8 @@ import React, { FC } from "react";
 import Option from "./option/Option";
 import styles from "./selector.module.scss";
 
-interface Option {
-  value: string;
-  label: React.ReactNode;
-}
-
 interface SelectorProps {
-  options: Option[];
+  options: string[];
   onSelect: (selectedOption: string) => void;
   selectedOption?: string;
 }
@@ -18,9 +13,9 @@ const Selector: FC<SelectorProps> = ({ options, onSelect, selectedOption }) => {
     <div className={styles.container}>
       {options.map((option) => (
         <Option
-          key={option.value}
+          key={option}
           option={option}
-          isSelected={selectedOption === option.value}
+          isSelected={selectedOption === option}
           onClick={onSelect}
         />
       ))}

@@ -5,9 +5,10 @@ import { useBoard } from "./useBoard";
 import { usePlayers } from "./usePlayers";
 import { useCallback, useEffect, useState } from "react";
 import { setNotes } from "../../services/notes.service";
-import GameService from "../../api/GameService";
+import GameService from "../../api/gameService";
 import { displayError } from "../../components/notification/Notification";
 import { selectAuthUser } from "../../redux/selectors/authSelectors";
+import { useAsync } from "../useAsynk";
 
 export function useGame(gameId: number) {
   const user = useSelector(selectAuthUser);
@@ -29,14 +30,16 @@ export function useGame(gameId: number) {
         displayError(e?.response?.data?.message || "Server error");
         navigate("/");
       }
-    }
+    } else console.log("user closure worked wrong");
   }, [user, gameId, navigate]);
 
-  useGameSocket(gameId, fetchData, addNewPlayer, updateExistingPlayer);
+  const { execute, loading } = useAsync(fetchData);
+
+  useGameSocket(gameId, execute, addNewPlayer, updateExistingPlayer);
 
   useEffect(() => {
-    fetchData();
+    execute();
   }, [gameId, user]);
 
-  return { players, board, gameData, onCellPut: updateCell };
+  return { players, board, gameData, onCellPut: updateCell, loading };
 }

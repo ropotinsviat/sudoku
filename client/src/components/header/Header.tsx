@@ -1,17 +1,15 @@
 import styles from "./header.module.scss";
-import CirclePicture from "../ui/picture/Picture";
+import CirclePicture from "../common/picture/Picture";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { selectAuthUser } from "../../redux/selectors/authSelectors";
-
-import { useDispatch } from "react-redux";
 import { logout } from "../../redux/actions/authActions";
 import { AppDispatch } from "../../redux/store";
 
-export default function Header() {
+const Header: React.FC = () => {
   const user = useSelector(selectAuthUser);
-
   const dispatch = useDispatch<AppDispatch>();
+
   const handleLogout = () => dispatch(logout());
 
   return (
@@ -25,9 +23,11 @@ export default function Header() {
           <div onClick={handleLogout}>
             <CirclePicture src={user.picture} />
           </div>
-          <div>{user.name} </div>
+          <div>{user.name}</div>
         </div>
       )}
     </header>
   );
-}
+};
+
+export default Header;

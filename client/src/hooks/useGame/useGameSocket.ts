@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { io } from "socket.io-client";
+import { displayMessage } from "../../components/notification/Notification";
 
 export const useGameSocket = (
   gameId: number,
@@ -16,6 +17,7 @@ export const useGameSocket = (
     socket.on("refresh", fetchData);
     socket.on("addPlayer", addPlayerHandler);
     socket.on("update", updateHandler);
+    socket.on("message", displayMessage);
 
     return () => {
       socket.disconnect();

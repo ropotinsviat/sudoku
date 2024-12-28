@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import GameService from "../api/GameService";
+import GameService from "../api/gameService";
 import { displayError } from "../components/notification/Notification";
 import { IGameCard } from "../types/Game";
+import { useAsync } from "./useAsynk";
 
 export function useGamesList() {
   const [games, setGames] = useState<IGameCard[]>([]);
@@ -15,9 +16,11 @@ export function useGamesList() {
     }
   }
 
+  const { execute, loading } = useAsync(fetchGames);
+
   useEffect(() => {
-    fetchGames();
+    execute();
   }, []);
 
-  return { games, fetchGames };
+  return { games, fetchGames: execute, loading };
 }

@@ -1,3 +1,4 @@
+import { FC } from "react";
 import styles from "./notes.module.scss";
 
 const positionMap: { [key: number]: string } = {
@@ -12,7 +13,11 @@ const positionMap: { [key: number]: string } = {
   9: styles["bottom-right"],
 };
 
-export default function Notes({ notes }: { notes: number[] }) {
+interface NotesProps {
+  notes: number[];
+}
+
+const Notes: FC<NotesProps> = ({ notes }) => {
   return (
     <div className={styles.notes}>
       {notes.map((note) => (
@@ -22,4 +27,6 @@ export default function Notes({ notes }: { notes: number[] }) {
       ))}
     </div>
   );
-}
+};
+
+export default Notes;

@@ -3,15 +3,17 @@ import Chat from "./chat/Chat";
 import NumberPad from "./number-pad/NumberPad";
 import ActionToolBar from "./action-tool-bar/ActionToolBar";
 
-export default function Controls({
+interface ControlsProps {
+  onNumClick: (n: number) => void;
+  noteMode: boolean;
+  switchNoteMode: () => void;
+}
+
+const Controls: React.FC<ControlsProps> = ({
   onNumClick,
   noteMode,
   switchNoteMode,
-}: {
-  onNumClick: any;
-  noteMode: any;
-  switchNoteMode: any;
-}) {
+}) => {
   const [showChat, setShowChat] = useState<boolean>(false);
 
   return (
@@ -26,4 +28,6 @@ export default function Controls({
       <NumberPad onClick={onNumClick} />
     </div>
   );
-}
+};
+
+export default Controls;

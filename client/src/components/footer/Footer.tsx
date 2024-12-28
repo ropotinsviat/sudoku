@@ -9,9 +9,9 @@ const Footer = () => {
           Sudoku Share
         </Link>
         <div>|</div>
-        <Link to="/privacy-policy" className="cursor">
-          Privacy policy
-        </Link>
+        <div className="cursor">Terms of use</div>
+        <div>|</div>
+        <div className="cursor">Privacy policy</div>
       </nav>
       <div>{new Date().getFullYear()}, Designed by Ropotin Sviatoslav</div>
     </footer>

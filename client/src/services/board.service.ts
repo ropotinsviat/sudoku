@@ -1,4 +1,4 @@
-import GameService from "../api/GameService";
+import GameService from "../api/gameService";
 import { displayError } from "../components/notification/Notification";
 import { deleteCellNotes } from "./notes.service";
 import { ICell, ISelectedCell } from "../types/Cell";

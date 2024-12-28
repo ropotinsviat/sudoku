@@ -1,7 +1,7 @@
 import Footer from "../../components/footer/Footer";
 import { Link } from "react-router-dom";
 import styles from "./homePage.module.scss";
-import Button from "../../components/ui/button/Button";
+import Button from "../../components/common/button/Button";
 
 const HomePage = () => {
   return (

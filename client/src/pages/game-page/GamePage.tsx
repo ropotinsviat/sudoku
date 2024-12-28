@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { GameProvider } from "../../context/GameContext";
 import Game from "../../components/game/Game";
 
-export default function GamePage() {
+const GamePage = () => {
   const { gameId } = useParams();
 
   return (
@@ -12,4 +12,6 @@ export default function GamePage() {
       </GameProvider>
     </main>
   );
-}
+};
+
+export default GamePage;

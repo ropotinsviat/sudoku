@@ -1,14 +1,11 @@
-import React from "react";
+import { lazy } from "react";
 
-const HomePage = React.lazy(() => import("../pages/home-page/HomePage"));
-const CreateGamePage = React.lazy(
+const HomePage = lazy(() => import("../pages/home-page/HomePage"));
+const CreateGamePage = lazy(
   () => import("../pages/create-game-page/CreateGamePage")
 );
-const GamesPage = React.lazy(() => import("../pages/games-page/GamesPage"));
-const PrivacyPolicyPage = React.lazy(
-  () => import("../pages/privacy-policy-page/PrivacyPolicyPage")
-);
-const GamePage = React.lazy(() => import("../pages/game-page/GamePage"));
+const GamesPage = lazy(() => import("../pages/games-page/GamesPage"));
+const GamePage = lazy(() => import("../pages/game-page/GamePage"));
 
 const routes = [
   {
@@ -24,11 +21,6 @@ const routes = [
   {
     path: "/games",
     component: GamesPage,
-    exact: true,
-  },
-  {
-    path: "/privacy-policy",
-    component: PrivacyPolicyPage,
     exact: true,
   },
   {

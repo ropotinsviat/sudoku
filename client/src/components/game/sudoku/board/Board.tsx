@@ -1,17 +1,16 @@
-import { memo } from "react";
+import { FC, memo } from "react";
 import styles from "./board.module.scss";
 import Cell from "./cell/Cell";
 import { useGameContext } from "../../../../context/GameContext";
 import { ISelectedCell } from "../../../../types/Cell";
 import calculateClasses from "../../../../utils/cellHelper";
 
-function Board({
-  selectedCell,
-  onCellClick,
-}: {
+interface BoardProps {
   selectedCell: ISelectedCell;
-  onCellClick: any;
-}) {
+  onCellClick: (row: number, col: number) => void;
+}
+
+const Board: FC<BoardProps> = ({ selectedCell, onCellClick }) => {
   const { board } = useGameContext();
 
   const cells = board.map((rowArray, row) =>
@@ -29,6 +28,6 @@ function Board({
   );
 
   return <div className={styles.board}>{cells}</div>;
-}
+};
 
 export default memo(Board);

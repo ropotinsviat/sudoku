@@ -1,0 +1,70 @@
+.button {
+  padding: 12px 30px;
+  font-size: 18px;
+  border-radius: 1px;
+  border: none;
+  transition: 0.3s;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dark {
+  color: white;
+  background-color: #74573f;
+}
+
+.light {
+  color: rgb(77, 58, 42);
+  background-color: rgb(252, 250, 247);
+  border: 2px solid rgb(116, 87, 63);
+  padding: 10px 28px;
+}
+
+.dark:hover {
+  background-color: rgb(106, 77, 53);
+}
+
+.light:hover {
+  border-color: rgb(252, 250, 247);
+}
+
+.spinner {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-right: 10px;
+}
+
+.loading {
+  cursor: not-allowed;
+}
+
+.dark.loading {
+  background-color: rgb(106, 77, 53);
+  .spinner {
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+  }
+}
+
+.light.loading {
+  border-color: rgb(252, 250, 247);
+  .spinner {
+    border: 3px solid rgba(116, 87, 63, 0.3);
+    border-top-color: rgb(116, 87, 63);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

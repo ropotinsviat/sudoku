@@ -1,8 +1,9 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import styles from "./option.module.scss";
+import { capitalizeFirstChar } from "../../../../utils/capitalizeFirstChar";
 
 interface OptionProps {
-  option: { value: string; label: React.ReactNode };
+  option: string;
   isSelected: boolean;
   onClick: (value: string) => void;
 }
@@ -11,9 +12,9 @@ const Option: FC<OptionProps> = ({ option, isSelected, onClick }) => {
   return (
     <button
       className={`${styles.button} ${isSelected ? styles.selected : ""}`}
-      onClick={() => onClick(option.value)}
+      onClick={() => onClick(option)}
     >
-      {option.label}
+      {capitalizeFirstChar(option)}
     </button>
   );
 };

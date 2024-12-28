@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import styles from "./sudoku.module.scss";
 import Board from "./board/Board";
 import Controls from "./controls/Controls";

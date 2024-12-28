@@ -1,13 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import GamesList from "../../components/game-list/GameList";
 import { useGamesList } from "../../hooks/useGamesList";
-import Button from "../../components/ui/button/Button";
+import Button from "../../components/common/button/Button";
 import GamesAvailability from "../../components/games-availability/GamesAvailability";
 import styles from "./gamesPage.module.scss";
 
-export default function GamesPage() {
+const GamesPage = () => {
   const navigate = useNavigate();
-  const { games, fetchGames } = useGamesList();
+  const { games, fetchGames, loading } = useGamesList();
 
   return (
     <main className={styles.gamesPage}>
@@ -19,7 +19,9 @@ export default function GamesPage() {
 
         <GamesAvailability gamesCount={games.length} />
       </div>
-      <GamesList games={games} />
+      <GamesList loading={loading} games={games} />
     </main>
   );
-}
+};
+
+export default GamesPage;

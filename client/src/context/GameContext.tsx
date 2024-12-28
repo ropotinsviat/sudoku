@@ -3,12 +3,14 @@ import { useGame } from "../hooks/useGame";
 import { IPlayer } from "../types/Player";
 import { IGame } from "../types/Game";
 import { ICell, ISelectedCell } from "../types/Cell";
-import GameService from "../api/GameService";
+import GameService from "../api/gameService";
+import Fallback from "../components/fallback/Fallback";
 
 type IGameDataAndApiActions = {
   players: IPlayer[];
   board: ICell[][];
   gameData: IGame;
+  loading: boolean;
   onCellPut: (
     val: number,
     selectedCell: ISelectedCell,
@@ -44,5 +46,9 @@ export function GameProvider({ gameId, children }: GameProviderProps) {
 
   const game = { ...gameData, startGame, sendMessage };
 
-  return <GameContext.Provider value={game}>{children}</GameContext.Provider>;
+  return (
+    <GameContext.Provider value={game}>
+      {game.loading ? <Fallback /> : children}
+    </GameContext.Provider>
+  );
 }

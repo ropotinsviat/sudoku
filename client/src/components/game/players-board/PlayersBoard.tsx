@@ -1,20 +1,19 @@
+import { FC } from "react";
 import styles from "./playersBoard.module.scss";
-import { useMemo } from "react";
-import { useGameContext } from "../../../context/GameContext";
 import PlayerCard from "./player-card/PlayerCard";
-import { sortPlayers } from "../../../utils/sortPlayers";
+import { IPlayer } from "../../../types/Player";
 
-export default function PlayersBoard() {
-  const { players, gameData } = useGameContext();
+interface PlayersBoardProps {
+  players: IPlayer[];
+}
 
-  const sortedPlayers = useMemo(() => sortPlayers(players), [players]);
-
+const PlayersBoard: FC<PlayersBoardProps> = ({ players }) => {
   return (
     <>
       {!!players.length && (
         <div className={styles.wrapper}>
           <div className={styles.playersBoard}>
-            {sortedPlayers.map((player, i) => (
+            {players.map((player, i) => (
               <PlayerCard player={player} key={i} />
             ))}
           </div>
@@ -22,4 +21,6 @@ export default function PlayersBoard() {
       )}
     </>
   );
-}
+};
+
+export default PlayersBoard;

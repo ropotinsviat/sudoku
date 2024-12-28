@@ -1,8 +1,14 @@
 import GameCard from "./game-card/GameCard";
 import styles from "./gameList.module.scss";
 import { IGameCard } from "../../types/Game";
+import { FC } from "react";
+import withLoading from "../hoc/withLoading";
 
-export default function GameList({ games }: { games: IGameCard[] }) {
+interface GameListProps {
+  games: IGameCard[];
+}
+
+const GameList: FC<GameListProps> = ({ games }) => {
   return (
     <div className={styles.gameList}>
       {games.map((game, i) => (
@@ -10,4 +16,6 @@ export default function GameList({ games }: { games: IGameCard[] }) {
       ))}
     </div>
   );
-}
+};
+
+export default withLoading(GameList);

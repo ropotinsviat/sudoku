@@ -2,11 +2,15 @@ import { useGameContext } from "../../../../../context/GameContext";
 import styles from "./chat.module.scss";
 import { useState } from "react";
 import { useMessages } from "../../../../../hooks/useMessages";
-import Button from "../../../../ui/button/Button";
+import Button from "../../../../common/button/Button";
 import Messages from "./messages/Messages";
-import Overlay from "../../../../ui/overlay/Overlay";
+import Overlay from "../../../../common/overlay/Overlay";
 
-export default function Chat({ close }: { close: () => void }) {
+interface ChatProps {
+  close: () => void;
+}
+
+const Chat: React.FC<ChatProps> = ({ close }) => {
   const { players, sendMessage } = useGameContext();
   const [inputValue, setInputValue] = useState("");
 
@@ -43,4 +47,6 @@ export default function Chat({ close }: { close: () => void }) {
       <Overlay onClick={close} />
     </>
   );
-}
+};
+
+export default Chat;

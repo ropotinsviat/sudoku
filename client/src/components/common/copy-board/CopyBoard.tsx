@@ -1,15 +1,19 @@
-import { useState } from "react";
+import { useState, FC } from "react";
 import styles from "./copyBoard.module.scss";
 
-export default function CopyBoard({ link }: { link: string }) {
+interface CopyBoardProps {
+  link: string;
+}
+
+const CopyBoard: FC<CopyBoardProps> = ({ link }) => {
   const [copied, setCopied] = useState(false);
 
-  function copy() {
+  const copy = () => {
     navigator.clipboard.writeText(link).then(() => {
       setCopied(true);
       setTimeout(() => setCopied(false), 5000);
     });
-  }
+  };
 
   return (
     <div className={styles.copyBoard} onClick={copy}>
@@ -19,4 +23,6 @@ export default function CopyBoard({ link }: { link: string }) {
       <div className={styles.copyLink}>{link}</div>
     </div>
   );
-}
+};
+
+export default CopyBoard;
